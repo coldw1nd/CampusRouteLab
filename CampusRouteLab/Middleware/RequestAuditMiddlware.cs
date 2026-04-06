@@ -2,12 +2,12 @@ using CampusRouteLab.Services;
 
 namespace CampusRouteLab.Middleware;
 
-public class RequestAuditMiddlware
+public class RequestAuditMiddleware
 {
     private readonly RequestDelegate _next;
     private readonly IAppInfoService _appInfo;
     
-    public RequestAuditMiddlware(RequestDelegate next, IAppInfoService appInfo)
+    public RequestAuditMiddleware(RequestDelegate next, IAppInfoService appInfo)
     {
         _next = next;
         _appInfo = appInfo;
