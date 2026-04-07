@@ -19,6 +19,12 @@ public class RequestAuditMiddleware
         ITransientMarkerService transientMarker)
     {
         Console.WriteLine($"[{DateTime.UtcNow:O}] Request started: {context.Request.Path}");
+
+        if (context.Request.Path.StartsWithSegments("/diag"))
+        {
+            Console.WriteLine("[DI Info]: Transient and Scoped services resolved via InvokeAsync parameters");
+            Console.WriteLine("[DI Info]: Singleton service resolved via Middleware constructor");
+        }
         
         context.Response.OnStarting(() =>
         {

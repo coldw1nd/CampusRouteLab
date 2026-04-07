@@ -1,6 +1,6 @@
 using CampusRouteLab.Middleware;
 
-namespace CampusRouteLab.Services;
+namespace CampusRouteLab.Middleware;
 
 public static class RequestAuditExtensions
 {

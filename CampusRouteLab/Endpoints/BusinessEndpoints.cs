@@ -17,6 +17,11 @@ public static class BusinessEndpoints
                 Sections = new[] { "/students", "/reports", "portal", "/files", "routes", "/diag/lifetimes" }
             });
         });
+
+        app.MapGet("/students", (IStudentCatalogService catalog) =>
+        {
+            TypedResults.Ok(catalog.GetGroups());
+        });
         
         app.MapGet("/students/{group}", Results<Ok<object>, NotFound> (string group, IStudentCatalogService catalog) =>
         {
